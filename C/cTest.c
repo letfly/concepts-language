@@ -1,15 +1,193 @@
-//////////////////////////////////结构体
+//////////////////////////////////Hello World
+/*# include <stdio.h>
+
+int main(){
+    //这是我的第一个C程序
+    printf("Hello, world!\n");
+
+    return 0;
+}*/
+/////////////////////////////////C函数
+/*
+# include <stdio.h>
+
+// 函数声明
+int max(int num1, int num2);
+
+int main(){
+    // 局部变量定义
+    int a = 100;
+    int b = 200;
+    int ret;
+
+    // 调用函数来获取最大值
+    ret = max(a, b);
+
+    printf("Max value is : %d\n", ret);
+    return 0;
+}
+
+int max(int num1, int num2){
+    // 局部变量声明
+    int result;
+    if (num1 > num2)
+        result = num1;
+    else
+        result = num2;
+
+    return result;
+}*/
+/////////////////////////////////C作用域规则
+/*
+#include <stdio.h>
+
+int main(){
+    // 局部变量声明
+    int a, b, c;
+
+    // 实际初始化
+    a = 10;
+    b = 20;
+    c = a + b;
+
+    printf("value of a = %d, b = %d and c = %d\n", a, b, c);
+    return 0;
+}*/
+/*
+#include <stdio.h>
+
+// 全局变量声明
+int g = 20;
+int main(){
+    // 局部变量声明
+    int g = 10;
+    printf ("value of g = %d\n", g);
+
+    return 0;
+}*/
+//////////////////////////////////C数组
+/*
+#include <stdio.h>
+
+int main(){
+    int n[10];
+    int i, j;
+    // 初始化数组元素
+    for (i = 0; i < 10; i++){
+        n[i] = i + 100; // 设置元素i为i+100
+    }
+    // 输出数组中每个元素的值
+    for (j = 0; j < 10; j++){
+        printf("Element[%d] = %d\n", j, n[j]);
+    }
+    return 0;
+}*/
+/*
+#include <stdio.h>
+int main(){
+    int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
+    printf ("%d", a[1][2]);
+    return 0;
+}*/
+/*
+#include <stdio.h>
+int main(){
+    // 带有5行2列的数组
+    int a[5][2] = {{0, 0}, {1, 2}, {3, 4}, {5, 6}, {7, 8}};
+    int i, j;
+    // 输出数组中每个元素的值
+    for (i = 0; i < 5; i++){
+        for (j = 0; j < 2; j++){
+            printf("a[%d][%d] = %d\n", i, j, a[i][j]);
+        }
+    }
+}*/
+//////////////////////////////////C指针
+/*#include <stdio.h>
+int main(){
+    int var1;
+    char var2[10];
+
+    printf("var1 变量的地址： %x\n", &var1);
+    printf("var2 变量的地址： %x\n", &var2);
+
+    return 0;
+}*/
+////// 如何使用指针
+/*
+#include <stdio.h>
+int main(){
+    int var = 20; // 实际变量的声明
+    int *ip;      // 指针变量的声明
+
+    ip = &var; // 在指针变量中存储var的地址
+
+    printf("Address of var variable: %x\n", &var);
+
+    // 在指针变量中存储的地址
+    printf("Address stored in ip variable: %x\n", *ip);
+
+    // 使用指针访问值
+    printf("Value of *ip variable: %d\n", *ip);
+
+    return 0;
+}*/
+////// C中的NULL
+/*#include <stdio.h>
+
+int main(){
+    int *ptr = NULL;
+
+    printf("ptr 的值是 %x\n", ptr);
+
+    return 0;
+}*/
+//////////////////////////////////C字符串
+/*
+#include <stdio.h>
+int main(){
+    char greeting[6] = {'H', 'e', 'l','l'};
+    printf("greeting MESSAGE: %s\n", greeting);
+
+    return 0;
+}*/
+/*
 #include<stdio.h>
 #include<string.h>
 
-/*struct Books{
+int main(){
+    char str1[12] = "hello";
+    char str2[12] = "world";
+    char str3[12];
+    int len;
+
+    // 复制str1到str3
+    strcpy(str3, str1);
+    printf("strcpy(str3, str1): %s\n", str3);
+
+    // 连接str1和str2
+    strcat(str1, str2);
+    printf("strcat(str1, str2): %s\n", str1);
+
+    // 连接后，str1的总长度
+    len = strlen(str1);
+    printf("strlen(str1): %d\n", len);
+
+    return 0;
+}*/
+//////////////////////////////////结构体
+/*
+#include<stdio.h>
+#include<string.h>
+
+struct Books{
 	char title[50];
 	char author[50];
 	char subject[100];
 	int book_id;
-}Book1,Book2;*/
+}Book1,Book2;
 // 访问结构体成员
-/*int main(){
+int main(){
 	// Book1 详述 
 	strcpy(Book1.title, "C Programming");
 	strcpy(Book1.author, "letfly");
@@ -27,10 +205,19 @@
 	printf("Book 1 author : %s\n", Book1.author);
 
 	return 0;
-}*//*
+}*/
 
 // 结构作为函数参数
 // 声明printBook()函数
+/*
+#include <stdio.h>
+#include <string.h>
+struct Books{
+    char title[50];
+    char author[50];
+    char subject[100];
+    int book_id;
+}Book1, Book2;
 void printBook(struct Books book);
 int main(){
 	// Book1 详述
@@ -38,22 +225,23 @@ int main(){
 	strcpy(Book1.author, "letfly");
 	strcpy(Book1.subject, "C Programming Tutorial");
 	Book1.book_id = 6495407;
-	
+
 	// Book2 详述 
 	strcpy(Book2.title, "C Programming");
 	strcpy(Book2.author, "letfly");
 	strcpy(Book2.subject, "C Programming Tutorial");
-	Book1.book_id = 6495408;
+	Book2.book_id = 6495408;
 
 	// 输出Book1信息 
 	printBook(Book1);
 	// 输出Book2信息
 	printBook(Book2);
+    return 0;
 }
 void printBook(struct Books book){
 	printf("Bookt title : %s\n", book.title);
-}*/
-
+}
+*/
 // 指向结构的指针
 /*struct Books{
 	char title[50];
@@ -236,7 +424,7 @@ int main(void){
 	printf("Max between %d and %d is %d\n", a, b, MAX(a, b));
 }*/
 
-
+/*
 部分代码如下：char *s;
 cout<<"请输入字符串，以'\n'结束";
 cin.getline(s, 1000, '\n');cin.getline(s, 1000, '\n');
@@ -276,6 +464,29 @@ Python对象分定长和不定长。定长的，可想而知，int这种肯定�
 [object.h]
 #define PyObject_VAR_HEAD   \
 	PyObject_HEAD   \
-	int ob_size;   /* Number of items in variable part */
+	int ob_size;   Number of items in variable part */
 
-typedef 
+#include<stdio.h>
+
+int comp(long int a, long int b, long int c){
+    int r = (a+b)>c?(1):(0);
+    return r;
+}
+
+int main(){
+    int num = 0, i = 0;
+    long int a, b, c;
+    scanf("%d", &num);
+    int result[num];
+    for(i=0; i<num; i++){
+        scanf("%ld%ld%ld", &a, &b, &c);
+        result[i] = comp(a, b, c);
+    }
+    for(i=0; i<num; i++){
+        if(result[i]==1)
+            printf("Case #%d: true\n", i+1);
+        else
+            printf("Case #%d: false\n", i+1);
+    }
+    return 0;
+}

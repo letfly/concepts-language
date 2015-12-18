@@ -1,4 +1,16 @@
 #coding:utf8
+class Books:
+    def __init__(self, title, author, subject, book_id):
+        self.title = title
+        self.author = author
+        self.subject = subject
+        self.book_id = book_id
+
+if __name__ == '__main__':
+    book1 = Books("C Programming", "letfly", "C Programming Tutorial", 6495407)
+    book2 = Books("C Programming 2", "letfly", "C Programming Tutorial", 6495408)
+    print "Book 1 title : {title}\n".format(title=book1.title)
+    print "Book 2 title : {title}\n".format(title=book2.title)
 '''
 x=4;print "x="+str(x);print "x=",x
 ##2
@@ -439,7 +451,6 @@ def lockhelper(cls):
 
 
 #########################################PythonTip
-'''
 ##A.abstract_factory
 """Implementation of the abstract factory pattern"""
 import random
@@ -494,6 +505,7 @@ if __name__ == "__main__":
         print("="*20)
 '''
 '''
+'''
 TCP编程
 Socket是网络编程的一个抽象概念。通常我们用一个Socket表示打开了一个"网络链接"，而打开一个Socket需要知道目标计算机的IP地址和端口号，再指定协议类型
 即可。
@@ -515,3 +527,93 @@ def main():
 if __name__ == '__main__':
     main()
 '''
+#### metaclass
+class ListMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs['add'] = lambda self, value: self.append(value)
+        return type.__new__(cls, name, bases, attrs)
+
+
+class MyList(list):
+    __metaclass__ = ListMetaclass #指示使用ListMetaclass来定制类
+#### 草稿
+import json
+# -*- coding: utf-8 -*-
+'''
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+print Student('Michael')
+class Student(object):
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return 'Student object (name: %s)' % self.name
+print Student('Michael')
+s = Student('Michael')
+s
+'''
+'''
+class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a, b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __getitem__(self, n):
+        a, b = 1, 1
+        for x in xrange(n):
+            a, b = b, a + b
+        return a
+
+    def next(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a > 10000:
+            raise StopIteration()
+        return self.a
+for n in Fib():
+    print n
+print Fib()[80]
+'''
+'''
+class Student(object):
+    pass
+
+s = Student()
+s2 = Student()
+s.name = 'Michael'
+print s.name
+
+def set_age(self, age):
+    self.age = age
+
+from types import MethodType
+s.set_age = MethodType(set_age, s, Student)
+s.set_age(25)
+print s.age
+
+def set_score(self, score):
+    self.score = score
+Student.set_score = MethodType(set_score, None, Student)
+s.set_score(100)
+print s.score
+s2.set_score(99)
+print s2.score
+'''
+'''
+import threading
+storage = threading.local()
+storage.foo = 1
+print storage.foo
+class AnotherThread(threading.Thread):
+    def run(self):
+        storage.foo = 2
+        print storage.foo, '==='
+
+another = AnotherThread()
+another.start()
+print storage.foo
+'''
+d = dict(name='a', age=20)
+print json.dumps(d)
