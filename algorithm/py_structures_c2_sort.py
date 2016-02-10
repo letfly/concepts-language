@@ -124,3 +124,9 @@ def partition(a_list, first, last):
 a_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 quick_sort(a_list)
 print(a_list)
+
+def shell_sort(a_list):
+    sublist_count = len(a_list) // 2
+    while sublist_count > 0:
+        for start_position in range(sublist_count):
+            gap_insertion_sort(a_list, start_position)
