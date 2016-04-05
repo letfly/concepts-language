@@ -16,3 +16,7 @@ Concepts_language
 * 依据Java改版为Python
 * w3cschool
 * PythonTip
+
+### Zero_study
+
+* 零基础学算法
