@@ -1,5 +1,10 @@
-sop("x="+x);
+class HelloWorld {
+    public static void main(String []args) {
+        System.out.println("x=");
+    }
+}
 //2
+/**
 a=(x>y)?x:y;
 //3
 if (x==3||x==4||x==5)
@@ -244,4 +249,4 @@ class TicketDemo{
 		t1.start();
 		t1.start();
 	}
-}
+}*/

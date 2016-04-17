@@ -1,8 +1,8 @@
-*.swp
-*.pyc
-*.swo
+*.sw[po]
+*.py[cod]
 .DS_Store
 *.out
 *.o
 *.exe
 *.OBJ
+*.class
