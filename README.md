@@ -17,6 +17,6 @@ Concepts_language
 * w3cschool
 * PythonTip
 
-### Zero_study
+### Mastering_algorithms_with_c
 
-* 零基础学算法
+* 算法精解:C语言描述
