@@ -13,9 +13,10 @@ Concepts_language
 
 ### Python
 
-* 依据Java改版为Python
-* w3cschool
-* PythonTip
+* bixiangdong_python
+* python_tip
+* elastic_search
+* algorithms
 
 ### Mastering_algorithms_with_c
 

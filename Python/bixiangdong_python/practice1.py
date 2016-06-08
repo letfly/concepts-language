@@ -1,6 +1,6 @@
 '''示例9: 装饰器带类参数，并分拆公共类到其他py文件中
 同时演示了对一个函数应用多个装饰器'''
-from pyTest import *
+from practice import *
 
 class example:
 	@lockhelper(mylocker)
