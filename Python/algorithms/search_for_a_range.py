@@ -1,10 +1,15 @@
 # http://oj.leetcode.com/problems/search-for-a-range/
 class Solution(object):
     def search_range(self, nums, target):
-        #
+        """
+        :type nums: list[]
+        :type target: integer
+        :rtype: list[]
+        """
         first = 0
         last = len(nums)
-        if nums[last-1]>=target>=nums[0]:
+        # find the any one==target
+        if nums[last-1] >= target >= nums[0]:
             while first < last:
                 medium = (first+last)/2
                 if nums[medium] > target:
@@ -13,6 +18,7 @@ class Solution(object):
                     first = medium
                 else:
                     start = end = medium
+                    # find the all
                     while start > 0 and nums[start - 1] == target:
                         start -= 1
                     while end + 1 < len(nums) and nums[end + 1] == target:
