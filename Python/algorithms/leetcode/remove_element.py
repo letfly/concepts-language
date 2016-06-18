@@ -1,3 +1,4 @@
+# https://oj.leetcode.com/problems/remove-element/
 class Solution(object):
     def remove_element(self, nums, val):
         """

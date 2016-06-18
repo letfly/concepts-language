@@ -12,7 +12,7 @@ Learn the concepts of Asm,C,Java,Js,Python daily notes
 
 ### Java
 
-* bixiangdong　详细代码参加[《毕向东JAVA基础25天视频教程》](http://blog.csdn.net/u012332571/article/details/39615569)
+* bixiangdong　详细代码参加[《毕向东JAVA基础25天视频教程》](http://blog.csdn.net/column/details/jastudy.html)
 
 ### Js
 

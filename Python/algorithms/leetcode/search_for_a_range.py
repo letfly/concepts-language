@@ -1,4 +1,4 @@
-# http://oj.leetcode.com/problems/search-for-a-range/
+# https://oj.leetcode.com/problems/search-for-a-range/
 class Solution(object):
     def search_range(self, nums, target):
         """
