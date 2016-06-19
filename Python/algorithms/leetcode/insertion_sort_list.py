@@ -29,10 +29,11 @@ class Solution(object):
 
 s = Solution()
 l = [5, 7, 7, 8, 8, 8, 3]
-node = ListNode(l[0])
 for i in xrange(len(l) - 1):
-    print node.val
+    while node.next is not None:
+        node = node.next
     node.next = ListNode(l[i+1])
-    node = ListNode(l[i+1])
-print node.val
+while node:
+    print node.val
+    node = node.next
 s.insertionSortList(node)
