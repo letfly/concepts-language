@@ -8,9 +8,10 @@ class Solution(object):
             return 
         res = triangle[-1]
         for i in xrange(len(triangle)-2, -1, -1):
+            print i
             for j in xrange(len(triangle[i])):
-                print res
                 res[j] = min(res[j], res[j+1]) + triangle[i][j]
+                print res
         return res[0]
 
 s = Solution()
