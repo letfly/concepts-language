@@ -1,9 +1,9 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 class Solution(object):
     def generateTrees(self, n):
@@ -25,3 +25,6 @@ class Solution(object):
         if n<1:
             return []
         return trees(1, n)
+
+s = Solution()
+print s.generateTrees(3)
