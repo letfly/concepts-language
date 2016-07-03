@@ -6,22 +6,20 @@ class Solution(object):
         :type target: integer
         :rtype: list[]
         """
-        first = 0
-        last = len(nums)
-        # find the any one==target
-        if nums[last-1] >= target >= nums[0]:
-            while first < last:
-                medium = (first+last)/2
+        # 二分法
+        first, last = 0, len(nums)-1
+        if nums[last] >= target >= nums[first]:
+            while last>first:
+                medium = (last+first)/2
                 if nums[medium] > target:
                     last = medium
                 elif nums[medium] < target:
                     first = medium
                 else:
                     start = end = medium
-                    # find the all
-                    while start > 0 and nums[start - 1] == target:
+                    while start > 0 and nums[start-1] == target:
                         start -= 1
-                    while end + 1 < len(nums) and nums[end + 1] == target:
+                    while end+1 < len(nums) and nums[end+1] == target:
                         end += 1
                     return [start, end]
         return [-1, -1]

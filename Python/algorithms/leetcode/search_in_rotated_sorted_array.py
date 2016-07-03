@@ -8,6 +8,7 @@ class Solution(object):
         lo, hi = 0, len(nums) - 1
         while lo < hi:
             mid = (lo+hi)/2
+            print 'mid', nums[mid]
             if(nums[0] > target) ^ (nums[0] > nums[mid]) ^ (target > nums[mid]):
                 lo = mid + 1
             else:

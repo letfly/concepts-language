@@ -6,7 +6,7 @@ class ListNode(object):
 
 class Solution(object):
     def merge(self, h1, h2):
-        dummy =tail = ListNode(None)
+        dummy = tail = ListNode(None)
         while h1 and h2:
             if h1.val < h2.val:
                 tail.next, tail, h1 = h1, h1, h1.next

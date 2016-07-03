@@ -12,9 +12,9 @@ class Solution(object):
             if mid*mid <= x < (mid+1)*(mid+1):
                 return mid
             elif mid*mid > x:
-                l = mid - 1
+                l = mid-1
             else:
-                f = mid + 1
+                f = mid+1
 
 s = Solution()
-print s.my_sqrt(0)
+print s.my_sqrt(12)
