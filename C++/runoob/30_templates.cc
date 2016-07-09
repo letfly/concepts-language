@@ -34,18 +34,21 @@ using std::endl;
 using std::cerr;
 using std::exception;
 using std::string;
-using std::vector;
 using std::out_of_range;
 
 template <class T>
 class Stack {
-  private:
+private:
     vector<T> elems;     // 元素
 
-  public: 
+public: 
     void push(T const&);  // 入栈
     void pop();               // 出栈
-    T top() const;            // 返回栈顶元素
+    T top() const; // 返回栈顶元素
+    bool empty() const{       // 如果为空则返回真。
+        cout << "ddd" << endl;
+        return elems.empty();
+    }
 };
 
 template <class T>
@@ -64,7 +67,7 @@ void Stack<T>::pop(){
 }
 
 template <class T>
-T Stack<T>::top() const{
+T Stack<T>::top()const{
     if (elems.empty()){
         throw out_of_range("Stack<>::top(): empty stack");
     }
@@ -79,6 +82,7 @@ int main(){
 
         // 操作 int 类型的栈
         int_stack.push(7);
+        int_stack.push(3);
         cout << int_stack.top() <<endl;
 
         // 操作 string 类型的栈

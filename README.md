@@ -6,9 +6,13 @@ Learn the concepts of Asm,C,Java,Js,Python daily notes
 
 ### C
 
-* w3cschool
+* runoob
 * source analysis of python
 * mastering algorithms with c
+
+### C++
+
+* runoob
 
 ### Java
 
