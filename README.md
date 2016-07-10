@@ -10,7 +10,7 @@ Learn the concepts of Asm,C,Java,Js,Python daily notes
 * source analysis of python
 * mastering algorithms with c
 
-### C++
+### Cc
 
 * runoob
 
