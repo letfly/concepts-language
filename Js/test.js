@@ -81,9 +81,9 @@ var sum = function(arg1, arg2)
 };
 console.log("Value of total:" + sum(10, 20));
 // 8构造函数
-function Car(num)
+function Car(n)
 {
-  this.num = num;
+  this.num = n;
   this.color = 'red';
   this.run = function()
   {
@@ -93,28 +93,25 @@ function Car(num)
 var c = new Car(2017);
 console.log(c.run());*/
 //
-function Car(model, year, miles)
+function Car(n)
 {
-  this.model = model;
-  this.year = year;
-  this.miles = miles;
+  this.color = "red";
+  this.num = n;
 }
 //注意：这里我们使用了object.prototype.方法名，而不是object.prototype
 //主要是用来避免重写定义原型prototype对象
 Car.prototype.output = function()
 {
-  return this.model + "走了" + this.miles + '公里';
+  return this.num + ";;" + this.color;
 };
-var tom = new Car("大叔", 2009, 20000);
-console.log(tom.output());
+var c = new Car(2017);
+console.log(c.output());
 /*// 10.this对象
 // 作为对象方法调用
-var point =
-{
-  x : 0,
-  y : 0,
-moveTo :
-  function(x, y)
+var point = {
+  x: 0,
+  y: 0,
+  moveTo: function(x, y)
   {
     this.x = this.x + x;
     this.y = this.y + y;
