@@ -1,3 +1,17 @@
+function Car()
+{
+  var num = 0; // 私有成员
+  var color = 'red';
+  this.run = function() // 有this，公有成员
+  {
+    console.log(num + ";;" + color);
+  };
+  this.output = function(n)
+  {
+    num = n;
+    this.run();
+  };
+}
 /*// 1.打印
 console.log("d")
 // 2.三元运算符
@@ -63,15 +77,6 @@ var arr = new Array('a', 'b');
 var arr = ['a', 'b'];
 console.log(arr);
 // 二，面向对象
-function Car()
-{
-  this.num = 0;
-  this.color = 'red';
-  this.run = function()
-  {
-    console.log(this.num+";;"+this.color);
-  };
-}
 var c = new Car();
 c.run();
 // 5匿名函数
@@ -83,38 +88,25 @@ console.log("Value of total:" + sum(10, 20));
 // 8构造函数
 function Car(n)
 {
-  this.num = n;
-  this.color = 'red';
+  var num = n;
+  var color = 'red';
   this.run = function()
   {
-    console.log(this.num+";;"+this.color);
+    console.log(num+";;"+color);
   };
 }
 var c = new Car(2017);
-console.log(c.run());*/
+c.run();
 //
-function Car(n)
-{
-  this.color = "red";
-  this.num = n;
-}
 //注意：这里我们使用了object.prototype.方法名，而不是object.prototype
 //主要是用来避免重写定义原型prototype对象
-Car.prototype.output = function()
+Car.prototype.add = function()
 {
-  return this.num + ";;" + this.color;
+  return this.run();
 };
-var c = new Car(2017);
-console.log(c.output());
-/*// 10.this对象
-// 作为对象方法调用
-var point = {
-  x: 0,
-  y: 0,
-  moveTo: function(x, y)
-  {
-    this.x = this.x + x;
-    this.y = this.y + y;
-  }
-};
-point.moveTo(1, 1);*/
+var c = new Car();
+c.add();*/
+// 9构造代码块(没有)
+// 10.this关键字(防止命名冲突以及定义公有成员)
+var c = new Car();
+c.output(2017);

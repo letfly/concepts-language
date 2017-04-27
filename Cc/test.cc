@@ -5,6 +5,7 @@ class Car
   int num = 0;
   char color[10] = "red";
 public:
+  static int static_n;
   Car(int n)
   {
     num = n;
@@ -13,6 +14,11 @@ public:
   {
     printf("%d;;%s", num, color);
   }
+  void output(int num)
+  {
+    this->num = num;
+    run();
+  }
 };
 void run()
 {
@@ -20,7 +26,7 @@ void run()
 }
 int main()
 {
-  // 1.打印
+  /*// 1.打印
   printf("d");
   // 2.三元运算符
   int a = (1 > 2) ? 1 : 2;
@@ -52,7 +58,7 @@ int main()
   }
   // 6.for循环
   for (int x = 0; x < 3; ++x) printf("%d", x);
-  /*// 10.函数
+  // 10.函数
   // run()
   // 11. 数组
   // 指针方式
@@ -70,8 +76,18 @@ int main()
   c->run();
   // 5.匿名函数
   auto sum = [](int x, int y) {return x+y;};
-  printf("%d", sum(10, 20));*/
+  printf("%d", sum(10, 20));
   // 8.构造函数
   Car *c = new Car(2017);
   c->run();
+  // 9构造代码块(没有)
+  // 10.this关键字(防止命名冲突而修改私有成员)
+  Car *c = new Car(2017);
+  c->output(2018);*/
+  // day06
+  // 1，static关键字(每一次声明类都是同一变量)
+  Car *c = new Car(2017);
+  c->output(2018);
+  printf("%d\n", Car::static_n);
+  printf("%d\n", Car::static_n);
 }
