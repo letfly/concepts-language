@@ -6,24 +6,33 @@ class Car
   char color[10] = "red";
 public:
   static int static_n;
-  Car(int n)
+  Car(int n=0)
   {
     num = n;
   }
   void run()
   {
-    printf("%d;;%s", num, color);
+    printf("%d;;%s\n", num, color);
   }
   void output(int num)
   {
     this->num = num;
     run();
   }
+  void static_variable() {
+    ++static_n;
+    ++this->num;
+    printf("%d,%d\n", static_n, this->num);
+  }
+  static void static_func() {
+    printf("%d", static_n);
+  }
 };
 void run()
 {
   printf("%d;;%s", 0, "red");
 }
+int Car::static_n = 0;
 int main()
 {
   /*// 1.打印
@@ -83,11 +92,15 @@ int main()
   // 9构造代码块(没有)
   // 10.this关键字(防止命名冲突而修改私有成员)
   Car *c = new Car(2017);
-  c->output(2018);*/
+  c->output(2018);
   // day06
   // 1，static关键字(每一次声明类都是同一变量)
   Car *c = new Car(2017);
-  c->output(2018);
-  printf("%d\n", Car::static_n);
-  printf("%d\n", Car::static_n);
+  c->static_variable();
+  Car *c1 = new Car(2017);
+  c1->static_variable();
+  c1->static_func(); // static函数*/
+  //day07
+  //1，继承-概述[为了提高代码的复用性，提出类类之间关系所属关系 is a]
+  //只支持单继承，不支持多继承，多继承不安全：
 }

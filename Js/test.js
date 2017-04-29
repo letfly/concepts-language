@@ -1,6 +1,6 @@
-function Car()
+function Car(n=0)
 {
-  var num = 0; // 私有成员
+  var num = n; // 私有成员
   var color = 'red';
   this.run = function() // 有this，公有成员
   {
@@ -10,6 +10,12 @@ function Car()
   {
     num = n;
     this.run();
+  };
+  this.static_output = function()
+  {
+    ++Car.static_n;
+    ++num;
+    console.log(Car.static_n + "," + num);
   };
 }
 /*// 1.打印
@@ -105,8 +111,29 @@ Car.prototype.add = function()
   return this.run();
 };
 var c = new Car();
-c.add();*/
+c.add();
 // 9构造代码块(没有)
 // 10.this关键字(防止命名冲突以及定义公有成员)
 var c = new Car();
 c.output(2017);
+// day06
+// 1，static关键字(es5没有该关键字)
+Car.static_n = 0; // static变量
+var c = new Car();
+c.static_output();
+var c1 = new Car();
+c1.static_output();
+Car.static_func = function() {
+  console.log("static_func");
+};
+Car.static_func();*/
+//day07
+//1，继承-概述[为了提高代码的复用性，提出类类之间关系所属关系 is a]
+//只支持单继承，不支持多继承，多继承不安全：
+function Car1(){
+  Car.call(this, []);
+}
+Car1.prototype = Object.create(Car.prototype, {
+});
+var c1 = new Car1();
+c1.output(1);
