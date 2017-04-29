@@ -126,7 +126,7 @@ c1.static_output();
 Car.static_func = function() {
   console.log("static_func");
 };
-Car.static_func();*/
+Car.static_func();
 //day07
 //1，继承-概述[为了提高代码的复用性，提出类类之间关系所属关系 is a]
 //只支持单继承，不支持多继承，多继承不安全：
@@ -136,4 +136,12 @@ function Car1(){
 Car1.prototype = Object.create(Car.prototype, {
 });
 var c1 = new Car1();
-c1.output(1);
+c1.output(1);*/
+//4，子父类中变量特点
+function Car1()
+{
+  output()
+  {
+    console.log("dd");
+  }
+}
