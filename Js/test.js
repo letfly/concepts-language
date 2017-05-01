@@ -1,18 +1,15 @@
-function Car(n=0)
-{
+function Car(n = 0) {
   var num = n; // 私有成员
   var color = 'red';
   this.run = function() // 有this，公有成员
   {
     console.log(num + ";;" + color);
   };
-  this.output = function(n)
-  {
+  this.output = function(n) {
     num = n;
     this.run();
   };
-  this.static_output = function()
-  {
+  this.static_output = function() {
     ++Car.static_n;
     ++num;
     console.log(Car.static_n + "," + num);
@@ -138,10 +135,8 @@ Car1.prototype = Object.create(Car.prototype, {
 var c1 = new Car1();
 c1.output(1);*/
 //4，子父类中变量特点
-function Car1()
-{
-  output()
-  {
+function Car1() {
+  output() {
     console.log("dd");
   }
 }

@@ -3,6 +3,7 @@
 #include <cstdio> // printf
 #include <cstring> // memset
 #include <unistd.h> // close
+
 int main() {
   // 1. 创建码头
   // int socket(int domain, int type, int protocol);
@@ -12,8 +13,7 @@ int main() {
   // socket()函数返回-1。全局变量errno将被设置为错误代码。（可以参考perror()的manpages）
   int server_s = socket(AF_INET, SOCK_STREAM, 0);
   // 捕获异常
-  if (server_s == -1)
-  {
+  if (server_s == -1) {
     printf("create socket failed, errno is %d\n", errno);
     return -1;
   }
@@ -21,9 +21,11 @@ int main() {
   struct sockaddr_in server_ip, client_ip;
   server_ip.sin_family = AF_INET; // 协议族
   server_ip.sin_port = htons(10003);
-  server_ip.sin_addr.s_addr = htonl(INADDR_ANY); // 该宏默认为0，也就是你的主机地址，方便可移植性
+  server_ip.sin_addr.s_addr = htonl(
+                                INADDR_ANY); // 该宏默认为0，也就是你的主机地址，方便可移植性
   memset(server_ip.sin_zero, 0, 8); // 8个字节
-  int err = bind(server_s, (struct sockaddr *)(&server_ip), sizeof(struct sockaddr));
+  int err = bind(server_s, (struct sockaddr *)(&server_ip),
+                 sizeof(struct sockaddr));
   if (err == -1) {
     printf("bind error, errno is %d\n", errno);
     return -1;
@@ -35,21 +37,18 @@ int main() {
     close(server_s);
     return -1;
   }
-
   // 2. 连接码头
   socklen_t client_len = sizeof(struct sockaddr);
-  int s= accept(server_s, (struct sockaddr *)(&client_ip), &client_len);
+  int s = accept(server_s, (struct sockaddr *)(&client_ip), &client_len);
   if (s == -1) {
     printf("accept error, errno is %d\n", errno);
     close(server_s);
     return -1;
   }
-
   // 3. 读取数据
   char buf[1024];
   read(s, buf, 100);
   printf("buf is %s\n", buf);
-
   // 4.关闭
   close(s);
   close(server_s);

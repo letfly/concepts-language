@@ -7,3 +7,4 @@
 *.OBJ
 *.class
 */vedio_code
+*node_modules
