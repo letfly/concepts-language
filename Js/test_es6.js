@@ -14,27 +14,24 @@ class Car {
     console.log("static_func");
   }
 }
-// 1，static关键字(es5没有该关键字)
-/*Car.static_func();
+/*// 1，static关键字(es5没有该关键字)
+Car.static_func();
 var c = new Car();
 c.output();
 console.log(c.num);
 //day07
 //1，继承-概述[为了提高代码的复用性，提出类类之间关系所属关系 is a]
 //只支持单继承，不支持多继承，多继承不安全：
-class Car1 extends Car {
-}
+class Car1 extends Car {}
 var c1 = new Car1();
 c1.output();
 //4，子父类中变量特点
-class Car1 extends Car
-{
-  output()
-  {
+class Car1 extends Car {
+  output() {
     console.log("dd");
   }
 }
-var c1 = new Car();
+var c1 = new Car1();
 c1.output();*/
 
 // 17.1.2回调函数
@@ -51,7 +48,7 @@ var readFile = require('fs-readfile-promise');
 
 var fileA = 'a.txt';
 var fileB = 'b.txt';
-/*readFile(fileA, function(err, data) {
+readFile(fileA, function(err, data) {
   if (err) throw err;
   console.log(data);
   readFile(fileB, function(err, data) {
@@ -60,7 +57,7 @@ var fileB = 'b.txt';
   });
 });
 // 17.1.3 Promise
-readFile(fileA)
+/*readFile(fileA)
   .then(function(data) {
     console.log(data.toString());
   })
@@ -118,8 +115,9 @@ g.next().value.then(function(data) {
   g.next(data).value.then(function(data) {
     g.next(data);
   });
-});*/
+});
 
+// 
 function run(gen) {
   var g = gen();
 
@@ -134,4 +132,4 @@ function run(gen) {
   next();
 }
 
-run(gen);
+run(gen);*/
