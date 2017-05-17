@@ -1,6 +1,6 @@
-var net = require('net');
+const net = require('net');
 
-var server = net.createServer(function(socket) {
+let server = net.createServer(function(socket) {
   // 新的连接
   socket.on('data', function() {
     console.log('连接断开');
