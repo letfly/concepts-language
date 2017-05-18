@@ -19,12 +19,3 @@ Server.prototype.listen = function() {};
 exports.createServer = function(options, connectionListener) {
   return new Server(options, connectionListener);
 };
-
-
-
-
-
-const myEE = new EventEmitter();
-myEE.on('foo', () => console.log('a'));
-myEE.prependListener('foo', () => console.log('b'));
-myEE.emit('foo');
