@@ -1,4 +1,4 @@
-function Car(n = 0) {
+/*function Car(n = 0) {
   var num = n; // 私有成员
   var color = 'red';
   this.run = function() // 有this，公有成员
@@ -14,7 +14,7 @@ function Car(n = 0) {
     ++num;
     console.log(Car.static_n + "," + num);
   };
-}
+}*/
 /*// 1.打印
 console.log("d")
 // 2.三元运算符
@@ -135,8 +135,20 @@ Car1.prototype = Object.create(Car.prototype, {
 var c1 = new Car1();
 c1.output(1);*/
 //4，子父类中变量特点
-function Car1() {
+/*function Car1() {
   output() {
     console.log("dd");
   }
+}*/
+// 异步机制
+for (var i = 0; i < 5; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 0);
 }
+console.log(i);
+let start = +new Date();
+
+setTimeout(function() {
+  console.log('time: ' + (new Date().getTime() - start));
+}, 10);

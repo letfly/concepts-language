@@ -11,6 +11,6 @@ let server = net.createServer(function(socket) {
   socket.write("欢迎光临《深入浅出Node.js》示例：\n");
 });
 
-server.listen(10003, function() {
+server.listen(3000, function() {
   console.log('server bound');
 });
