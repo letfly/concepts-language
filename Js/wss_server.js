@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const WebSocketServer = require('ws').Server;
+const WebSocketServer = require('./ws').Server;
 
 
 let options = {

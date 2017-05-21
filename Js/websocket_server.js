@@ -1,10 +1,8 @@
-const WebSocketServer = require('ws').Server;
-let wsserver = new WebSocketServer({ port: 8080 });
+const WebSocketServer = require('./ws').Server;
+let wsServer = new WebSocketServer({ port: 3000 });
 
-wsserver.on('connection', function connection(socket) {
+wsServer.on('connection', function connection(socket) {
   socket.on('message', function incoming(message) {
     console.log('received: %s', message);
   });
-
-  socket.send('something');
 });

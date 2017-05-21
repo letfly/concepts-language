@@ -1,4 +1,4 @@
-class Car {
+/*class Car {
   constructor() {
     this.num = 0;
     this.color = 'red';
@@ -13,7 +13,7 @@ class Car {
   static static_func() {
     console.log("static_func");
   }
-}
+}*/
 /*// 1，static关键字(es5没有该关键字)
 Car.static_func();
 var c = new Car();
@@ -35,7 +35,7 @@ var c1 = new Car1();
 c1.output();*/
 
 // 17.1.2回调函数
-/*var fs = require('fs');
+var fs = require('fs');
 var readFile = function(fileName) {
   return new Promise(function(resolve, reject){
     fs.readFile(fileName, function(err, data){
@@ -43,8 +43,8 @@ var readFile = function(fileName) {
       resolve(data);
     });
   });
-};*/
-var readFile = require('fs-readfile-promise');
+};
+//var readFile = require('fs-readfile-promise');
 
 var fileA = 'a.txt';
 var fileB = 'b.txt';
@@ -57,7 +57,7 @@ readFile(fileA, function(err, data) {
   });
 });
 // 17.1.3 Promise
-/*readFile(fileA)
+readFile(fileA)
   .then(function(data) {
     console.log(data.toString());
   })
@@ -69,7 +69,7 @@ readFile(fileA, function(err, data) {
   })
   .catch(function(err) {
     console.log(err);
-  });*/
+  });
 // 17.3.5 Generator
 function* gen() {
   var r1 = yield readFile(fileA);

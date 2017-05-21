@@ -4,7 +4,7 @@ function EventEmitter() {
   EventEmitter.init.call(this);
 }
 
-function _addListener(target, type, listener, prepend) {
+function _addListener(target, type, listener) {
   if (typeof listener != 'function')
     throw new TypeError('"listener" argument must be a function');
 
