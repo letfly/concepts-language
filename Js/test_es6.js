@@ -33,12 +33,29 @@ class Car1 extends Car {
 }
 var c1 = new Car1();
 c1.output();*/
+// this关键字
+// bind this关键字
+class Logger {
+  constructor() {
+    this.printName = this.printName.bind(this);
+  }
+  printName(name = 'there') {
+    this.print(`Hello ${name}`);
+  }
+  print(text) {
+    console.log(text);
+  }
+}
+const logger = new Logger();
+//logger.printName();
+const { printName } = logger;
+printName(); // TypeError: Cannot read property 'print' of undefined
 
 // 17.1.2回调函数
 var fs = require('fs');
 var readFile = function(fileName) {
-  return new Promise(function(resolve, reject){
-    fs.readFile(fileName, function(err, data){
+  return new Promise(function(resolve, reject) {
+    fs.readFile(fileName, function(err, data) {
       if (err) return reject(err);
       resolve(data);
     });
@@ -71,12 +88,12 @@ readFile(fileA)
     console.log(err);
   });
 // 17.3.5 Generator
-function* gen() {
+/*function* gen() {
   var r1 = yield readFile(fileA);
   console.log(r1.toString());
   var r2 = yield readFile(fileB);
   console.log(r2.toString());
-}
+}*/
 /*var thunkify = require('thunkify');
 var readFile = thunkify(readFile);
 

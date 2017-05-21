@@ -1,8 +1,17 @@
-const WebSocketServer = require('./ws').Server;
-let wsServer = new WebSocketServer({ port: 3000 });
+const WebSocketServer = require('ws').Server;
+const Koa = require('koa');
 
-wsServer.on('connection', function connection(socket) {
-  socket.on('message', function incoming(message) {
-    console.log('received: %s', message);
+let app = new Koa();
+let server = app.listen(3000);
+
+let wsServer = new WebSocketServer({ server: server });
+wsServer.on('connection', function(ws) {
+  let i = 0;
+  ws.on('message', function(msg) {
+    console.log(msg, i++);
+    console.log(i);
   });
+
+  ws.send('server lai le ' + i);
 });
+app.wss = wsServer;
