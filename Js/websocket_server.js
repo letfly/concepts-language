@@ -1,11 +1,9 @@
-const https = require('http');
 const Koa = require('koa');
 const WebSocketServer = require('ws').Server;
 
 let app = new Koa();
 
-let server = https.createServer(app.callback()).listen(3000);
-let wsServer = new WebSocketServer({ server: server });
+let wsServer = new WebSocketServer({ port: 3000, server: app });
 wsServer.on('connection', function(ws) {
   let i = 0;
   ws.on('message', function(msg) {

@@ -6,8 +6,6 @@ let options = {
   port: 3000,
   path: '/',
   method: 'GET',
-  key: fs.readFileSync('./client.key'),
-  cert: fs.readFileSync('./client.cert'),
   ca: [fs.readFileSync('./ca.cert')],
   agent: false
 };

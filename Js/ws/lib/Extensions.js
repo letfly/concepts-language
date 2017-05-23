@@ -21,7 +21,7 @@ const parse = (value) => {
     params.forEach((param) => {
       const parts = param.trim().split('=');
       const key = parts[0];
-      var value = parts[1];
+      let value = parts[1];
 
       if (value === undefined) {
         value = true;
@@ -52,11 +52,11 @@ const parse = (value) => {
  */
 const format = (value) => {
   return Object.keys(value).map((token) => {
-    var paramsList = value[token];
+    let paramsList = value[token];
     if (!Array.isArray(paramsList)) paramsList = [paramsList];
     return paramsList.map((params) => {
       return [token].concat(Object.keys(params).map((k) => {
-        var p = params[k];
+        let p = params[k];
         if (!Array.isArray(p)) p = [p];
         return p.map((v) => v === true ? k : `${k}=${v}`).join('; ');
       })).join('; ');
