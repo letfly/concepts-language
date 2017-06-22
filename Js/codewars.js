@@ -1,8 +1,9 @@
-function stringClean(s) { // O(len)
-  var ans = '';
-  for (var i= 0; i < s.length; ++i) {
-    if (isNaN(s[i])||s[i] == ' ') ans += s[i];
-  }
-  return ans;
-}
-console.log(stringClean("12dd"));
+String.prototype.toBase64 = function () {
+  return new Buffer(this.toString()).toString('base64');
+};
+
+String.prototype.fromBase64 = function () {
+  return new Buffer(this.toString(), 'base64').toString('utf8');
+};
+console.log('this is a string!!'.toBase64());
+console.log('dGhpcyBpcyBhIHN0cmluZyEh'.fromBase64());

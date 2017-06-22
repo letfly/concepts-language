@@ -1,27 +1,26 @@
 const https = require('https');
 const fs = require('fs');
 
-let options = {
-  hostname: '127.0.0.1',
-  port: 3000,
+const options = {
+  host: '127.0.0.1',
+  port: 8000,
   path: '/',
   method: 'GET',
-  ca: [fs.readFileSync('./ca.cert')],
-  agent: false
+  ca: [fs.readFileSync('./ca-cert.pem')],
+  key: fs.readFileSync('./server-key.pem'),
+  cert: fs.readFileSync('./server-cert.pem'),
+  rejectUnauthorized: true,
 };
 
-options.agent = new https.Agent(options);
-let req = https.request(options, function(res) {
-  console.log("statusCode: ", res.statusCode);
-  console.log("headers: ", res.headers);
-  res.setEncoding('utf-8');
-  res.on('data', function(d) {
-    console.log(d);
+const req = https.request(options, (res) => {
+  console.log('statusCode:', res.statusCode);
+  console.log('headers:', res.headers);
+
+  res.on('data', (d) => {
+    process.stdout.write(d);
   });
 });
-
-req.end();
-
-req.on('error', function(e) {
-  console.log(e);
+req.on('error', (e) => {
+  console.error(e);
 });
+req.end();

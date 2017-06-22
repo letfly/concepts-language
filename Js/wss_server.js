@@ -21,3 +21,8 @@ wsServer.on('connection', function connection(socket) {
 
   socket.send('something');
 });
+wsServer.on('connection', (ws) => {
+  ws.on('message', (msg) => {
+    console.log('next', msg);
+  });
+});
