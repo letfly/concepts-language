@@ -1,16 +1,17 @@
 const fs = require('fs');
 const https = require('https');
-const Koa = require('koa');
 const WebSocketServer = require('ws').Server;
 
 
 let options = {
-  key: fs.readFileSync('./server.key'),
-  cert: fs.readFileSync('./server.cert')
+  ca: [fs.readFileSync('./ca-cert.pem')],
+  key: fs.readFileSync('./server-key.pem'),
+  cert: fs.readFileSync('./server-cert.pem'),
+  rejectUnauthorized: true,
+  requestCert: true,
 };
 
-let server = new Koa();
-let app = https.createServer(options, server.callback()).listen(3000, '127.0.0.1');
+let app = https.createServer(options).listen(3000, '127.0.0.1');
 
 let wsServer = new WebSocketServer({ server: app });
 
